@@ -13,4 +13,4 @@ For tips on good programming style, see [Hadley Wickham's web resource](http://a
 
 Details on the individual lectures are:
 
-* Lecture 01, *Atomic Vectors* [Materials]() [Code](https://github.com/JimDuggan/CT5102/tree/master/code/01%20Vectors)
+* *Lecture 01* -  **Atomic Vectors** [Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/01%20Vectors) [Code](https://github.com/JimDuggan/CT5102/tree/master/code/01%20Vectors)
