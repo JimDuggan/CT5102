@@ -9,8 +9,6 @@ This github site is a resource for Progamming for Data Analytics (CT5102), a mod
 
 For tips on good programming style, see [Hadley Wickham's web resource](http://adv-r.had.co.nz/Style.html)
 
-![Course Structure](https://github.com/JimDuggan/CT5102/blob/master/images/CourseStructure.jpg)
-
 Details on the individual lectures are:
 
 * *Lecture 01* -  **Atomic Vectors** [Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/01%20Vectors) [Code](https://github.com/JimDuggan/CT5102/tree/master/code/01%20Vectors)
