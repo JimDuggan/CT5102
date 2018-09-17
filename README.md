@@ -18,5 +18,4 @@ Details on the individual lectures are:
 
 * *Lecture 02* -  **Lists and Functions** [Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/02%20Lists%20and%20Functions)
 [Code](https://github.com/JimDuggan/CT5102/tree/master/code/02%20Lists%20and%20Functions)
-[Assignment]()
-[Problem Sheet]()
+
