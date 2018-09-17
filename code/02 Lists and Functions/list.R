@@ -1,4 +1,4 @@
-# create a list an manipulate the elements
+# create a list and manipulate the elements
 # list contains three elements
 # an integer vector, a string and a boolean vector
 
