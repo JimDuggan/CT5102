@@ -1,4 +1,4 @@
-Lecture 1 - Summary
+Lecture 1 (Atomic Vectors) - Summary
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->

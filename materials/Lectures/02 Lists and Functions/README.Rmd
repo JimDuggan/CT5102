@@ -1,0 +1,117 @@
+---
+output: github_document
+title:  Lecture 2 (Lists and Functions) - Summary
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+Here are some of the key points from the lecture. See also the sample code solutions in the code folder.
+
+* Unlike atomic vectors, lists can contain many different types (incuding lists)
+
+```{r}
+l <- list(1:3, "Test",c(T,F,T,T))
+str(l)
+```
+
+* Lists can be subsetted like an atomic vector. There are two ways to subset, preserving [] and simplifying [[]]
+
+```{r}
+l <- list(1:3, list(2:3,4:5))
+str(l)
+# this preserves the list structure
+l1 <- l[1]
+str(l1)
+
+# This simplifies (and returns the contents of the first element)
+c1 <- l[[1]]
+str(c1)
+
+# This finds the second vector that is part of the 2nd list element
+c2 <- l[[2]][[2]]
+str(c2)
+
+# This finds the first element of the first vector that is part of the 2nd list element
+c3 <- l[[2]][[1]][1]
+str(c3)
+```
+
+* Here is a nice example of how a list is used in machine learning/data science
+```{r}
+mod <- lm(data=datasets::faithful,eruptions~waiting)
+str(mod)
+summary(mod)
+```
+
+* Functions are defined using the keyword function, and return the last evaluated expression
+
+```{r}
+evens <- function (v){
+  v[v %% 2 == 0]
+}
+
+evens(1:10)
+```
+
+* Functions can be passed to functions
+```{r}
+t1 <- function (f, v){
+  f(v)
+}
+
+t1(min,1:10)
+t1(max,1:10)
+t1(sum,1:10)
+```
+
+* Functions can have default values
+```{r}
+evens <- function (v, dec=F){
+  sort(v[v %% 2 == 0],decreasing=dec)
+}
+
+evens(1:10)
+evens(1:10, dec = T)
+```
+
+* When functions are created, they have access to all the variables defined in that environment
+```{r}
+c<-10
+test <- function (a, b){
+  a+b+c
+}
+
+test(10,20)
+```
+
+* The environment in R is a hierarchy, with the Global Environment at the bottom of this structure.
+```{r}
+search()
+```
+
+* You can find the parent of any environment
+```{r}
+parent.env(globalenv())
+```
+
+* R will find the first occurance of a variable/function in the hierachy. For example
+```{r}
+environment(mean)
+x <- mean(1:10)
+x
+```
+
+
+* You can create a function with the same name as another function (in a different package) in your Global Envirnoment. This could lead to tricky situations.
+```{r}
+mean<-function(v)max(v)
+environment(mean)
+x <- mean(1:10)
+x
+```
+* You can also ensure that you call the correct function by prefixing the package name and using ::
+```{r}
+mean<-function(v)max(v)
+environment(mean)
+x <- base::mean(1:10)
+x
+```

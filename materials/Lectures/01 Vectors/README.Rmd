@@ -1,6 +1,6 @@
 ---
 output: github_document
-title:  Lecture 1 - Summary
+title:  Lecture 1 (Atomic Vectors) - Summary
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
