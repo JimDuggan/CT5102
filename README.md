@@ -19,3 +19,10 @@ Details on the individual lectures are:
 * *Lecture 02* -  **Lists and Functions** [Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/02%20Lists%20and%20Functions)
 [Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/02%20Lists%20and%20Functions)
 
+* *Lecture 03* -  **Matrices and Functionals** [Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/03%20Matrices%20%26%20Functionals)
+[Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/03%20Matrices%20and%20Functionals)
+
+
+
+
+
