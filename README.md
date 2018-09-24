@@ -13,12 +13,10 @@ Details on the individual lectures are:
 
 * *Lecture 01* -  **Atomic Vectors** [Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/01%20Vectors)
 [Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/01%20Vectors)
-[Assignment](https://github.com/JimDuggan/CT5102/blob/master/materials/Assignments/01%20Assignment.pdf)
 [Problem Sheet](https://github.com/JimDuggan/CT5102/blob/master/materials/Problem%20Sheets/01%20Problem%20Sheet%20Vectors.pdf)
 
 * *Lecture 02* -  **Lists and Functions** [Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/02%20Lists%20and%20Functions)
 [Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/02%20Lists%20and%20Functions)
-[Assignment](https://github.com/JimDuggan/CT5102/blob/master/materials/Assignments/02%20Assignment.pdf)
 
 * *Lecture 03* -  **Matrices and Functionals** [Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/03%20Matrices%20%26%20Functionals)
 [Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/03%20Matrices%20and%20Functionals)
