@@ -22,6 +22,8 @@ Details on the individual lectures are:
 [Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/03%20Matrices%20and%20Functionals)
 
 
-
+* *Lecture 04* -  **Data Frames**
+[Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/04%20Data%20Frames)
+[Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/04%20Data%20Frames)
 
 
