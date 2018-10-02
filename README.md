@@ -11,6 +11,8 @@ For tips on good programming style, see [Hadley Wickham's web resource](http://a
 
 Details on the individual lectures are:
 
+__(1) Base R__
+
 * *Lecture 01* -  **Atomic Vectors** [Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/01%20Vectors)
 [Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/01%20Vectors)
 [Problem Sheet](https://github.com/JimDuggan/CT5102/blob/master/materials/Problem%20Sheets/01%20Problem%20Sheet%20Vectors.pdf)
@@ -26,4 +28,4 @@ Details on the individual lectures are:
 [Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/04%20Data%20Frames)
 [Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/04%20Data%20Frames)
 
-
+__(2) Data Science with R__
