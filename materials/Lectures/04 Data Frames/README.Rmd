@@ -1,0 +1,76 @@
+---
+output: github_document
+title:  Lecture 4 (Data Frames) - Summary
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+Here are some of the key points from the lecture. See also the sample code solutions in the code folder.
+
+* A data frame stores heterogeneous data, and the package datasets contains good examples (i.e. mtcars - 32 observations of 11 variables)
+
+```{r}
+str(mtcars)
+
+head(mtcars)
+```
+
+* Matrix notation can be used to access data frames
+
+```{r}
+mtcars[1:4,]
+mtcars[1:10,c("mpg","cyl","disp")]
+
+```
+
+* The list $ operator can be used to access column data, and perform conditional operations
+```{r}
+mtcars$mpg
+mtcars$mpg > mean(mtcars$mpg)
+```
+
+* Combining these can be useful for subsetting
+```{r}
+mtcars[mtcars$mpg > mean(mtcars$mpg),]
+```
+
+* New columns can be easily added to a data frame
+```{r}
+mtcars$kpg <- mtcars$mpg * 8/5
+mtcars[1:10,c("mpg","kpg")]
+```
+
+* The apply function can be used to process data frames to get the mean of a column
+```{r}
+apply(mtcars,2,mean)
+```
+
+* The sapply function can be used to process data frames to get the mean of a column
+```{r}
+sapply(mtcars,mean)
+```
+
+* The lapply function can be used to process data frames to get the mean of a column
+```{r}
+lapply(mtcars,mean)
+```
+* The package nycflights13 contains an excellent data set, this includes over 300,000 individual flight records
+```{r}
+summary(nycflights13::flights)
+```
+
+* A section of the data is shown here
+```{r}
+n <- sample(nrow(nycflights13::flights),10)
+nycflights13::flights[n,c("year",
+                          "month",
+                          "day",
+                          "dep_delay", 
+                          "arr_delay", 
+                          "origin", 
+                          "dest", 
+                          "distance")]
+```
+
+
+
+
