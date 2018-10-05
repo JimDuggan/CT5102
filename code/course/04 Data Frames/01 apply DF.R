@@ -2,7 +2,10 @@ library(ggplot2)
 
 # get the average of each column
 
-apply(mtcars,2,mean)
+apply(mtcars,1,function(x){
+  browser()
+  mean(x)
+})
 
 # test to see the order in which data is processed
 

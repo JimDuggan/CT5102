@@ -9,6 +9,8 @@ This github site is a resource for Progamming for Data Analytics (CT5102), a mod
 
 For tips on good programming style, see [Hadley Wickham's web resource](http://adv-r.had.co.nz/Style.html)
 
+For an excellent resource to discover courses and learning materials for learning and teaching R, see [rstudio-education/rstats-rd](https://github.com/rstudio-education/rstats-ed)
+
 Details on the individual lectures are:
 
 __(1) Base R__
