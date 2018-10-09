@@ -69,13 +69,26 @@ ggplot(data=mpg) + geom_point(aes(x=displ,y=cty,colour=manufacturer))+facet_grid
 
 ![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
+-   Compare the previous plot with the following command
+
+``` r
+table(mpg$cyl,mpg$class)
+```
+
+    ##    
+    ##     2seater compact midsize minivan pickup subcompact suv
+    ##   4       0      32      16       1      3         21   8
+    ##   5       0       2       0       0      0          2   0
+    ##   6       0      13      23      10     10          7  16
+    ##   8       5       0       2       0     20          5  38
+
 -   Statistical models can also be layered on a graph
 
 ``` r
 ggplot(data=mpg, aes(x=displ,y=cty))+geom_point()+geom_smooth(method = "lm")
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 -   To show further plots, the dataset ggplot2::diamonds is used
 
@@ -102,7 +115,7 @@ glimpse(diamonds)
 ggplot(data=diamonds, aes(x=cut))+geom_bar()
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
 -   These can be viewed by categories (e.g. using fill=clarity)
 
@@ -110,7 +123,7 @@ ggplot(data=diamonds, aes(x=cut))+geom_bar()
 ggplot(data=diamonds, aes(x=cut,fill=clarity))+geom_bar()
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-10-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-11-1.png)
 
 -   Boxplots can also be drawn
 
@@ -118,7 +131,7 @@ ggplot(data=diamonds, aes(x=cut,fill=clarity))+geom_bar()
 ggplot(data=diamonds, aes(x=cut,y=carat))+geom_boxplot()
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-11-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-12-1.png)
 
 **Additional Examples**
 

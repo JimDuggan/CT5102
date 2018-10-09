@@ -46,6 +46,11 @@ ggplot(data=mpg) + geom_point(aes(x=displ,y=cty,colour=class))+facet_wrap(~manuf
 ggplot(data=mpg) + geom_point(aes(x=displ,y=cty,colour=manufacturer))+facet_grid(cyl~class)
 ```
 
+* Compare the previous plot with the following command
+```{r}
+table(mpg$cyl,mpg$class)
+```
+
 * Statistical models can also be layered on a graph
 ```{r}
 ggplot(data=mpg, aes(x=displ,y=cty))+geom_point()+geom_smooth(method = "lm")
