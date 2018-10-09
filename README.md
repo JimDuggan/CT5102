@@ -17,23 +17,23 @@ Details on the individual lectures are:
 
 __(1) Base R__
 
-* *Lecture 01* -  **Atomic Vectors** [Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/01%20Vectors)
-[Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/01%20Vectors)
-[Problem Sheet](https://github.com/JimDuggan/CT5102/blob/master/materials/Problem%20Sheets/01%20Problem%20Sheet%20Vectors.pdf)
+* *Lecture 01* -  **Atomic Vectors** [(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/01%20Vectors)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/01%20Vectors)
+[(Problem Sheet)](https://github.com/JimDuggan/CT5102/blob/master/materials/Problem%20Sheets/01%20Problem%20Sheet%20Vectors.pdf)
 
-* *Lecture 02* -  **Lists and Functions** [Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/02%20Lists%20and%20Functions)
-[Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/02%20Lists%20and%20Functions)
+* *Lecture 02* -  **Lists and Functions** [(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/02%20Lists%20and%20Functions)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/02%20Lists%20and%20Functions)
 
-* *Lecture 03* -  **Matrices and Functionals** [Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/03%20Matrices%20%26%20Functionals)
-[Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/03%20Matrices%20and%20Functionals)
+* *Lecture 03* -  **Matrices and Functionals** [(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/03%20Matrices%20%26%20Functionals)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/03%20Matrices%20and%20Functionals)
 
 
 * *Lecture 04* -  **Data Frames**
-[Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/04%20Data%20Frames)
-[Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/04%20Data%20Frames)
+[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/04%20Data%20Frames)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/04%20Data%20Frames)
 
 __(2) Data Science with R__
 
 * *Lecture 05* -  **ggplot2**
-[Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/05%20ggplot2)
-[Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/05%20ggplot2)
+[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/05%20ggplot2)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/05%20ggplot2)
