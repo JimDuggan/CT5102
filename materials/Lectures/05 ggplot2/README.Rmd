@@ -1,0 +1,80 @@
+---
+output: github_document
+title:  Lecture 5 (ggplot2) - Summary
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+Here are some of the key points from the lecture. See also the sample code solutions in the code folder.
+
+* To show the workings of ggplot2, we will use the mpg dataset, and the tibble library.
+
+```{r}
+library(ggplot2)
+library(tibble)
+
+glimpse(mpg)
+
+```
+
+* ggplot2 works in layers, with data and mapping. The data must be in a tibble/data frame. Mappings involved the aes() function and map variables onto plot features. A simple example is shown below.
+
+```{r}
+ggplot(data=mpg) + geom_point(aes(x=displ,y=cty))+ylab("City MPG")+xlab("Displacement")
+```
+
+* Point colours can be set directly as part of geom_point. We can also layer plots on one another, for example, showing the different between city MPG and highway MPG.
+
+```{r}
+ggplot(data=mpg) + geom_point(aes(x=displ,y=cty), colour="red")+
+  geom_point(aes(x=displ,y=hwy), colour="blue")+
+  ylab("MPG")+xlab("Displacement")
+```
+
+* The aes() function can also be used to colour points (automatically) by category. Note that the colour parameter is inside the aes() function. This is important!
+
+```{r}
+ggplot(data=mpg) + geom_point(aes(x=displ,y=cty,colour=class))
+```
+
+* Facets can alse be used to explore data, by splitting the graphs out into new categories
+```{r}
+ggplot(data=mpg) + geom_point(aes(x=displ,y=cty,colour=class))+facet_wrap(~manufacturer)
+```
+
+* Facets can alse be used in a grid fashion for two categorical variables.
+```{r}
+ggplot(data=mpg) + geom_point(aes(x=displ,y=cty,colour=manufacturer))+facet_grid(cyl~class)
+```
+
+* Statistical models can also be layered on a graph
+```{r}
+ggplot(data=mpg, aes(x=displ,y=cty))+geom_point()+geom_smooth(method = "lm")
+```
+
+* To show further plots, the dataset ggplot2::diamonds is used
+
+```{r}
+glimpse(diamonds)
+```
+
+* Bar charts can process observations to produce overall numeric counts
+```{r}
+ggplot(data=diamonds, aes(x=cut))+geom_bar()
+```
+
+* These can be viewed by categories (e.g. using fill=clarity)
+```{r}
+ggplot(data=diamonds, aes(x=cut,fill=clarity))+geom_bar()
+```
+
+* Boxplots can also be drawn
+```{r}
+ggplot(data=diamonds, aes(x=cut,y=carat))+geom_boxplot()
+```
+
+**Additional Examples**
+
+* [Top 50 ggplot2 Visualizations](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
+* [Exploration of MPG Dataset by Shailesh Kumar](https://rpubs.com/shailesh/mpg-exploration)
+* [R Cookbook by Winston Chang](http://www.cookbook-r.com/Graphs/)
+

@@ -11,6 +11,8 @@ For tips on good programming style, see [Hadley Wickham's web resource](http://a
 
 For an excellent resource to discover courses and learning materials for learning and teaching R, see [rstudio-education/rstats-rd](https://github.com/rstudio-education/rstats-ed)
 
+Datasets used as part of the course can be viewed [here](https://github.com/JimDuggan/CT5102/tree/master/datasets)
+
 Details on the individual lectures are:
 
 __(1) Base R__
@@ -31,3 +33,7 @@ __(1) Base R__
 [Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/04%20Data%20Frames)
 
 __(2) Data Science with R__
+
+* *Lecture 05* -  **ggplot2**
+[Materials](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/05%20ggplot2)
+[Code](https://github.com/JimDuggan/CT5102/tree/master/code/course/05%20ggplot2)
