@@ -37,3 +37,7 @@ __(2) Data Science with R__
 * *Lecture 05* -  **ggplot2**
 [(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/05%20ggplot2)
 [(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/05%20ggplot2)
+
+* *Lecture 06* -  **dplyr**
+[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/06%20dplyr)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/06%20dplyr)

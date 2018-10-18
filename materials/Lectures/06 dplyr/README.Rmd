@@ -1,0 +1,104 @@
+---
+output: github_document
+title:  Lecture 6 (dplyr) - Summary
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+The dplyr package is a key part of the tidyverse in R, and provides a number of useful functions to process rectangular data in R. The main functions are the "five verbs", which are filter(), arrange(), select(), mutate() and summarise().
+
+* **filter()** allows you to pick observations by their values, effectively filtering the available data set into a subset of rows that match certain conditions. We show the tibble mpg (contained in ggplot2), and then performa a filter operation on the model column (model=="a4")
+
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+mpg
+
+filter(mpg,model=="a4")
+
+```
+
+* **arrange()** facilitates sorting of data based on a specified column, or number of columns. The default is ascending, and the function **desc()** can be used to sort in ascending order
+
+```{r}
+
+arrange(mpg,cty)
+
+arrange(mpg,desc(cty))
+
+```
+
+* **arrange()** can also process multiple columns.
+
+```{r}
+
+arrange(mpg,desc(cty),desc(hwy))
+
+```
+
+* **select()** is used to reduce the number of columns in the tibble
+```{r}
+
+select(mpg,manufacturer,model,year,cty,hwy)
+
+```
+
+
+* **select()** is used to reduce the number of columns in the tibble
+```{r}
+
+select(mpg,manufacturer,model,year,cty,hwy)
+
+```
+
+* **select()** can work with a number of functions, for example ends_with() and contains()
+```{r}
+
+select(mpg,ends_with("r"))
+select(mpg,contains("l"))
+
+```
+
+
+* **mutate()** creates new variables with functions of existing variables
+```{r}
+t <- mutate(mpg,CityHwayRatio=cty/hwy)
+select(t,manufacturer,model, year, cty,hwy, CityHwayRatio)
+```
+
+* **summarise()** can collapse many values down to a single summary, using the function group_by()
+
+```{r}
+gr <- group_by(mpg,manufacturer)
+summarise(gr,MinYear=min(year),MaxYear=max(year),AvrCity=mean(cty),AvrHwy=mean(hwy))
+```
+
+* **pull()** will return a column as a vector. By default, it returns the last column, otherwise the column number/name can be specified
+
+```{r}
+t <- filter(mpg,model=="a4")
+t
+pull(t,1)
+```
+
+* **case_when()** can perform a sequence of if-else commands, and can be used with mutate()
+```{r}
+t <- mutate(mpg,CarType=case_when(
+    displ < 2.4 ~ "Small",
+    displ < 4.6 ~ "Medium",
+    TRUE        ~ "Large"
+))
+arrange(t,desc(displ))
+```
+
+
+* The **%>% (pipe operator)** can be used to create a workflow of chained operations.
+
+```{r}
+mpg %>% group_by(manufacturer) %>%
+summarise(MinYear=min(year),
+          MaxYear=max(year),
+          AvrCity=mean(cty),
+          AvrHwy=mean(hwy))
+```

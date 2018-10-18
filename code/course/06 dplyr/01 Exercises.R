@@ -3,6 +3,7 @@ library(dplyr)
 library(stringr)
 
 # 1 (a) Flights that had an arrival delay of two or more hours
+filter(flights,arr_delay >= 120)
 flights %>% filter(arr_delay >= 120)
 
 # 1 (b) Flights that flew to Houston
