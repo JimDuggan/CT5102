@@ -23,18 +23,15 @@ push <- function(sp, val){
   UseMethod("push")
 }
 
-#' @export
 push.stackp <- function(sp, val){
   sp$stack[length(sp$stack)+1] <-val
   sp
 }
 
-#' @export
 peek <- function(sp){
   UseMethod("peek")
 }
 
-#' @export
 peek.stackp <- function(sp){
   # get the top element
   if(length(sp$stack) == 0)
