@@ -42,10 +42,12 @@ peek.stackp <- function(sp){
   sp$stack[[length(sp$stack)]]
 }
 
+#' @export
 pop <- function(sp){
   UseMethod("pop")
 }
 
+#' @export
 pop.stackp <- function(sp){
   # get the top element
   if(length(sp$stack) == 0)
@@ -54,14 +56,17 @@ pop.stackp <- function(sp){
   sp
 }
 
+#' @export
 get_length <- function(sp){
   UseMethod("get_length")
 }
 
+#' @export
 get_length.stackp <- function(sp){
   length(sp$stack)
 }
 
+#' @export
 summary.stackp <- function(sp){
   cat("The stack has ",length(sp$stack), "elements\n")
   cat("These are the elements, top to bottom.\n")
