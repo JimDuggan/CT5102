@@ -41,3 +41,7 @@ __(2) Data Science with R__
 * *Lecture 06* -  **dplyr**
 [(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/06%20dplyr)
 [(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/06%20dplyr)
+
+* *Lecture 07* -  **Relational Data**
+[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/07%20relational%20data)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/07%20rel%20data%20%26%20tidyr)
