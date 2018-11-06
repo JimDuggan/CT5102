@@ -1,0 +1,12 @@
+---
+output: github_document
+title:  Lecture 8 (stringr) - Summary
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+The package **dplyr** also supports mutating and filtering joins. For the following two tables, we can explore different functions to join the tables.
+
+```{r}
+
+
+```
