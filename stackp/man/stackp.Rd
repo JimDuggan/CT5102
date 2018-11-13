@@ -2,7 +2,7 @@
 % Please edit documentation in R/stackp.R
 \name{stackp}
 \alias{stackp}
-\title{The constructor for stackp}
+\title{The constructor for the class stackp}
 \usage{
 stackp()
 }
@@ -10,7 +10,7 @@ stackp()
 An S3 object of class stackp
 }
 \description{
-The constructor for stackp
+The constructor for the class stackp
 }
 \examples{
 s <- stackp()

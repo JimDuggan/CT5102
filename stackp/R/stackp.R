@@ -1,4 +1,4 @@
-#' The constructor for stackp
+#' The constructor for the class stackp
 #' @return An S3 object of class stackp
 #' @examples
 #' s <- stackp()
