@@ -5,7 +5,7 @@ context("stackp tests...")
 
 test_that("Constructor created ok ...", {
   s <- stackp()
-  expect_true(class(s) == "stack")
+  expect_true(class(s) == "stackp")
 })
 
 test_that("Push a value onto the stack ...", {
