@@ -1,12 +1,16 @@
-y <- 1
-
-f <- function(x)x+y
-
-f(10)
-
 e <- new.env()
 
-e$g <- function()1
+e$f <- function()10
+
+with(e,{e$g <- function()1})
 
 e$g()
 
+e
+environment(e$g)
+
+environment(e$f)
+
+parent.env(environment(e$g))
+
+parent.env(environment(e$f))
