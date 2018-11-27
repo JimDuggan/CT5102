@@ -1,0 +1,35 @@
+---
+title: "Parameter Test"
+bibliography: ref.bib
+params:
+  my_class: suv
+  my_time: !r lubridate::now()
+  
+output:
+  html_document: default
+  pdf_document: default
+---
+
+The time is now `r params$my_time`
+
+The reference is [@paper1,@paper2]
+
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+
+class <- mpg %>% filter(class == params$my_class)
+
+```
+
+
+```{r, message=FALSE}
+ggplot(class,aes(x=displ,y=hwy))+
+  geom_point()+
+  geom_smooth(se=F)
+
+```
+
+
+

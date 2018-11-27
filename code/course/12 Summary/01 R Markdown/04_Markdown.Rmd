@@ -1,0 +1,69 @@
+---
+title: "Exploring Heights"
+date: '`r lubridate::today()`'
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+bibliography: ref.bib
+---
+
+```{r setup, include=FALSE}
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+path <- "/Users/jim/Dropbox/R Projects/CT5102/code/course/12 Summary/01 R Markdown/"
+d <- read_csv(paste0(path,"HopeCollegeHeights.csv"))
+d <- d %>% mutate(Gender=as.factor(ifelse(Gender==1,"Female","Male")))
+```
+
+###Introduction
+This document summarises provides an initial analysis of height data from the 1990s, as sourced from [@Link1].
+
+###Summary of the Data
+The data has `r nrow(d)` observations, with the following summary table:
+```{r, echo=FALSE}
+sd <- d %>% group_by(Gender) %>% 
+              summarise(Mean=mean(Height),
+                        Median=median(Height),
+                        SDev=sd(Height),
+                        Number=n()
+                        )
+knitr::kable(
+  sd,
+  caption="Summary of Heights Data"
+)
+```
+
+###Visualisation
+The first graphs shows the two cohorts.
+
+```{r,echo=FALSE}
+ggplot(d, aes(Height)) + 
+  geom_histogram(binwidth = 1) + 
+  facet_grid(Gender ~ .)
+```
+
+We then show the two cohorts in a single graph.
+
+```{r, echo=FALSE}
+ggplot(d, aes(Height, fill = Gender)) + 
+  geom_histogram(binwidth = 1)
+```
+
+###Statistical Test
+Finally, a student-t test is performed on the two data sets, confirming the statistical difference.
+
+```{r, echo=FALSE}
+males   <- d %>% filter(Gender=="Male")   %>% select(Height) %>% pull()
+
+females <- d %>% filter(Gender=="Female") %>% select(Height) %>%pull()
+
+t <- t.test(males,females)
+
+t
+```
+
+
+###References

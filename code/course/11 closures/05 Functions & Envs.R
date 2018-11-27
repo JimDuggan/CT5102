@@ -4,6 +4,8 @@ e$f <- function()10
 
 with(e,{e$g <- function()1})
 
+with(e,{h <- function()99})
+
 e$g()
 
 e

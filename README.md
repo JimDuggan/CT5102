@@ -45,3 +45,14 @@ __(2) Data Science with R__
 * *Lecture 07* -  **Relational Data**
 [(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/07%20relational%20data)
 [(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/07%20rel%20data%20%26%20tidyr)
+
+* *Lecture 08* -  **stringr**
+
+__(3) Advanced R__
+* *Lecture 09* -  **S3 Classes**
+
+* *Lecture 10* -  **Packages**
+
+* *Lecture 11* -  **Environments, Functions and Closures**
+
+* *Lecture 12* -  **Markdown, RShiny and Course Summary**

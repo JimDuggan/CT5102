@@ -1,0 +1,37 @@
+---
+title: "Diamond Sizes"
+output:
+  pdf_document: default
+  html_document: default
+date: '2017-08-25'
+---
+
+Here is an example of using **R Markdown**.
+
+# The chunk setup is run automatically once, before any other code is run.
+```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+```
+
+
+
+```{r, echo=FALSE}
+smaller <- diamonds %>% 
+  filter(carat <= 2.5)
+```
+
+We have data about `r nrow(diamonds)` 
+diamonds in our data set.
+Only **`r nrow(diamonds) - nrow(smaller)`** 
+are larger than 2.5 carats.
+
+The distribution of the remainder is show below:
+
+```{r, echo=FALSE}
+smaller %>% 
+  ggplot(aes(carat)) +
+  geom_freqpoly(binwidth=0.01)
+
+```
+
