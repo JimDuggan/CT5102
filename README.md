@@ -57,13 +57,13 @@ __(3) Advanced R__
 [(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/09%20s3%20classes)
 
 * *Lecture 10* -  **Packages**
-[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/09%20S3)
-[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/09%20s3%20classes)
+[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/10%20Packages)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/10%20Packages/stackp)
 
 * *Lecture 11* -  **Environments, Functions and Closures**
-[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/09%20S3)
-[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/09%20s3%20classes)
+[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/11%20Envs%20and%20Functions)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/11%20closures)
 
 * *Lecture 12* -  **Markdown, RShiny and Course Summary**
-[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/09%20S3)
-[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/09%20s3%20classes)
+[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/12%20RShiny%20%26%20Markdown)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/12%20Summary)
