@@ -4,9 +4,91 @@ title:  Lecture 8 (stringr) - Summary
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-The package **dplyr** also supports mutating and filtering joins. For the following two tables, we can explore different functions to join the tables.
+The package **stringr** supports string processing in R. A key idea is the use of regular expressions to search for terms. Text mining is also a fascinating area, and R offers further tools, for example see: [Text Mining with R)](http://tidytextmining.com/index.html), wriiten by Julia Silge and David Robinson.
+
+
+Useful functions are
+
+* **str_detect()**, which determines if a character vector matches a pattern, and returns a logical vector of the same length.
+
 
 ```{r}
+library(stringr)
+x <- c("Apple","Banana","Pear")
+str_detect(x,"an")
+x[str_detect(x,"an")]
+```
 
+* More complex string patterns can be formed using regular expressions
+    - To match **.**, we need to use the escape sequence **\\** before the character **.**
+    
+    ```{r}
+    x <- c("apple.com","Banana","Pear")
+    x[str_detect(x,"e\\.com")]
+    ```
+
+
+    - Anchors can be used to match from the start (^) of a string, or from the end ($).
+
+    
+    ```{r}
+    x <- c("Apple","Banana","Pear")
+    x[str_detect(x,"^P")]
+    x[str_detect(x,"a$")]
+    ```
+
+
+    - **\\d**  – matches any digit
+    - **\\s** – matches any whitespace
+    - **[abc]** – matches a, b or c
+    - **[^abc]** – matches anything except a, b or c.
+    
+    
+    ```{r}
+    x <- c("Dublin","Galway","Cork 1","DCDCDCdcdcdc")
+    x[str_detect(x,"\\d")]
+    x[str_detect(x,"\\s")]
+    x[str_detect(x,"[DC]")]
+    ```
+    
+    
+    - For repetition, ? for (0 or 1) * for (0 or more), + for (1 or more)
+
+    ```{r}
+    x <- c("Italy","Germany","Greece")
+    x[str_detect(x,"e?")]
+    x[str_detect(x,"e*")]
+    x[str_detect(x,"e+")]
+    ```
+
+    - {n}: exactly n
+    - {n,}: n or more
+    - {n,m}: between n and m
+    
+    ```{r}
+    x <- c("Italy","Germany","Greece")
+    x[str_detect(x,"e{2}")]
+    x[str_detect(x,"e{1,}")]
+    x[str_detect(x,"e{2,2}")]
+    ```
+    
+   
+* **str_subset()**, can be used to filter the data set based on a regular expression
+
+```{r}
+s <- sentences[1:5]
+str_subset(s,"Rice|blue")
+```
+
+
+* Grouped matches can be used to extract parts of a complex match
+
+```{r}
+s <- sentences[1:5]
+noun <- "(a|the) ([^ ]+)"
+str_subset(s,noun)
+
+str_subset(s,noun) %>% str_extract(noun)
 
 ```
+

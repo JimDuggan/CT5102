@@ -47,6 +47,9 @@ __(2) Data Science with R__
 [(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/07%20rel%20data%20%26%20tidyr)
 
 * *Lecture 08* -  **stringr**
+[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/08%20stringr)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/08%20stringr)
+
 
 __(3) Advanced R__
 * *Lecture 09* -  **S3 Classes**
