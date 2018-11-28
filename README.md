@@ -52,10 +52,18 @@ __(2) Data Science with R__
 
 
 __(3) Advanced R__
-* *Lecture 09* -  **S3 Classes**
+
+* *Lecture 09* -  **S3 Classes** [(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/09%20S3)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/09%20s3%20classes)
 
 * *Lecture 10* -  **Packages**
+[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/09%20S3)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/09%20s3%20classes)
 
 * *Lecture 11* -  **Environments, Functions and Closures**
+[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/09%20S3)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/09%20s3%20classes)
 
 * *Lecture 12* -  **Markdown, RShiny and Course Summary**
+[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/09%20S3)
+[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/09%20s3%20classes)
