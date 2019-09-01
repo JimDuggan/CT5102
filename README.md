@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 # CT5102
 Programming for Data Analytics @NUI Galway 
 
