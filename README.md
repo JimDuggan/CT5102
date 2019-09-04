@@ -22,53 +22,8 @@ Details on the individual lectures are:
 
 __(1) Base R__
 
-* *Lecture 01* -  **Atomic Vectors** [(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/01%20Vectors)
+* *Lecture 01* -  **Atomic Vectors** [(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/01%20atomic%20vectors)
 [(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/01%20Vectors)
-[(Problem Sheet)](https://github.com/JimDuggan/CT5102/blob/master/materials/Problem%20Sheets/01%20Problem%20Sheet%20Vectors.pdf)
-
-* *Lecture 02* -  **Lists and Functions** [(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/02%20Lists%20and%20Functions)
-[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/02%20Lists%20and%20Functions)
-
-* *Lecture 03* -  **Matrices and Functionals** [(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/03%20Matrices%20%26%20Functionals)
-[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/03%20Matrices%20and%20Functionals)
 
 
-* *Lecture 04* -  **Data Frames**
-[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/04%20Data%20Frames)
-[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/04%20Data%20Frames)
 
-__(2) Data Science with R__
-
-* *Lecture 05* -  **ggplot2**
-[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/05%20ggplot2)
-[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/05%20ggplot2)
-
-* *Lecture 06* -  **dplyr**
-[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/06%20dplyr)
-[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/06%20dplyr)
-
-* *Lecture 07* -  **Relational Data**
-[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/07%20relational%20data)
-[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/07%20rel%20data%20%26%20tidyr)
-
-* *Lecture 08* -  **stringr**
-[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/08%20stringr)
-[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/08%20stringr)
-
-
-__(3) Advanced R__
-
-* *Lecture 09* -  **S3 Classes** [(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/09%20S3)
-[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/09%20s3%20classes)
-
-* *Lecture 10* -  **Packages**
-[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/10%20Packages)
-[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/10%20Packages/stackp)
-
-* *Lecture 11* -  **Environments, Functions and Closures**
-[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/11%20Envs%20and%20Functions)
-[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/11%20closures)
-
-* *Lecture 12* -  **Markdown, RShiny and Course Summary**
-[(Materials & Summary)](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/12%20RShiny%20%26%20Markdown)
-[(Code)](https://github.com/JimDuggan/CT5102/tree/master/code/course/12%20Summary)

@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -342,18 +343,6 @@ summary {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
@@ -392,24 +381,7 @@ $(document).ready(function () {
 <p>Details on the individual lectures are:</p>
 <p><strong>(1) Base R</strong></p>
 <ul>
-<li><p><em>Lecture 01</em> - <strong>Atomic Vectors</strong> <a href="https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/01%20Vectors">(Materials &amp; Summary)</a> <a href="https://github.com/JimDuggan/CT5102/tree/master/code/course/01%20Vectors">(Code)</a> <a href="https://github.com/JimDuggan/CT5102/blob/master/materials/Problem%20Sheets/01%20Problem%20Sheet%20Vectors.pdf">(Problem Sheet)</a></p></li>
-<li><p><em>Lecture 02</em> - <strong>Lists and Functions</strong> <a href="https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/02%20Lists%20and%20Functions">(Materials &amp; Summary)</a> <a href="https://github.com/JimDuggan/CT5102/tree/master/code/course/02%20Lists%20and%20Functions">(Code)</a></p></li>
-<li><p><em>Lecture 03</em> - <strong>Matrices and Functionals</strong> <a href="https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/03%20Matrices%20%26%20Functionals">(Materials &amp; Summary)</a> <a href="https://github.com/JimDuggan/CT5102/tree/master/code/course/03%20Matrices%20and%20Functionals">(Code)</a></p></li>
-<li><p><em>Lecture 04</em> - <strong>Data Frames</strong> <a href="https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/04%20Data%20Frames">(Materials &amp; Summary)</a> <a href="https://github.com/JimDuggan/CT5102/tree/master/code/course/04%20Data%20Frames">(Code)</a></p></li>
-</ul>
-<p><strong>(2) Data Science with R</strong></p>
-<ul>
-<li><p><em>Lecture 05</em> - <strong>ggplot2</strong> <a href="https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/05%20ggplot2">(Materials &amp; Summary)</a> <a href="https://github.com/JimDuggan/CT5102/tree/master/code/course/05%20ggplot2">(Code)</a></p></li>
-<li><p><em>Lecture 06</em> - <strong>dplyr</strong> <a href="https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/06%20dplyr">(Materials &amp; Summary)</a> <a href="https://github.com/JimDuggan/CT5102/tree/master/code/course/06%20dplyr">(Code)</a></p></li>
-<li><p><em>Lecture 07</em> - <strong>Relational Data</strong> <a href="https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/07%20relational%20data">(Materials &amp; Summary)</a> <a href="https://github.com/JimDuggan/CT5102/tree/master/code/course/07%20rel%20data%20%26%20tidyr">(Code)</a></p></li>
-<li><p><em>Lecture 08</em> - <strong>stringr</strong> <a href="https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/08%20stringr">(Materials &amp; Summary)</a> <a href="https://github.com/JimDuggan/CT5102/tree/master/code/course/08%20stringr">(Code)</a></p></li>
-</ul>
-<p><strong>(3) Advanced R</strong></p>
-<ul>
-<li><p><em>Lecture 09</em> - <strong>S3 Classes</strong> <a href="https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/09%20S3">(Materials &amp; Summary)</a> <a href="https://github.com/JimDuggan/CT5102/tree/master/code/course/09%20s3%20classes">(Code)</a></p></li>
-<li><p><em>Lecture 10</em> - <strong>Packages</strong> <a href="https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/10%20Packages">(Materials &amp; Summary)</a> <a href="https://github.com/JimDuggan/CT5102/tree/master/code/course/10%20Packages/stackp">(Code)</a></p></li>
-<li><p><em>Lecture 11</em> - <strong>Environments, Functions and Closures</strong> <a href="https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/11%20Envs%20and%20Functions">(Materials &amp; Summary)</a> <a href="https://github.com/JimDuggan/CT5102/tree/master/code/course/11%20closures">(Code)</a></p></li>
-<li><p><em>Lecture 12</em> - <strong>Markdown, RShiny and Course Summary</strong> <a href="https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/12%20RShiny%20%26%20Markdown">(Materials &amp; Summary)</a> <a href="https://github.com/JimDuggan/CT5102/tree/master/code/course/12%20Summary">(Code)</a></p></li>
+<li><em>Lecture 01</em> - <strong>Atomic Vectors</strong> <a href="https://github.com/JimDuggan/CT5102/tree/master/materials/01%20atomic%20vectors">(Materials &amp; Summary)</a> <a href="https://github.com/JimDuggan/CT5102/tree/master/code/course/01%20Vectors">(Code)</a></li>
 </ul>
 </div>
 
@@ -430,6 +402,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
