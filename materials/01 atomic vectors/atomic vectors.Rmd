@@ -1,10 +1,10 @@
 ---
 title: '1. R Foundations - Atomic Vectors'
-author: "Data Science for OR - J. Duggan"
+author: "CT5102 - J. Duggan"
 output:
   beamer_presentation:
     theme: "CambridgeUS"
-    colortheme: "dolphin"
+    colortheme: "seahorse"
     fonttheme: "structurebold"
 ---
 
@@ -20,6 +20,7 @@ library(ggplot2)
 - R’s mission is to enable the best and most thorough exploration of data possible (Chambers 2008). 
 - It is a dialect of the S language, developed at Bell Laboratories
 - ACM noted that S “will forever alter the way people analyze, visualize, and manipulate data” 
+- See [https://github.com/JimDuggan/CT5102](https://github.com/JimDuggan/CT5102)
 
   ```{r,echo=T}
 v <- 1:10
@@ -31,9 +32,39 @@ summary(v)
 
 ```{r, echo=F,out.width='90%',fig.cap='R Studio IDE'}
  knitr::include_graphics("images/01 RStudio.png")
- ```
+```
  
+## Setup an Account on rstudio.cloud
 
+```{r, echo=F,out.width='100%'}
+ knitr::include_graphics("images/02 RStudio Create.png")
+```
+
+## Create a project
+
+```{r, echo=F,out.width='100%'}
+ knitr::include_graphics("images/03 RStudioWorkspace.png")
+```
+
+## RStudio ready for use
+
+```{r, echo=F,out.width='100%'}
+ knitr::include_graphics("images/04 My Project.png")
+```
+
+## Run code in console. 
+- R allows you process the data with function calls
+
+```{r, echo=F,out.width='100%'}
+ knitr::include_graphics("images/05 Run Code.png")
+```
+
+
+## Challange 1.1 - Replicate the following in RStudio Cloud
+```{r, echo=F,out.width='100%'}
+ knitr::include_graphics("images/05 Run Code.png")
+```
+ 
 ## R Data Types
  
 || Homogenous| Heterogenous |
@@ -128,7 +159,7 @@ v2
 typeof(v2)
 ```
   
-## Challenge 1.1
+## Challenge 1.2
 Determine the types for each of the following vectors
 ```{r,echo=T}
 v1 <- c(1L, T, FALSE)
@@ -203,7 +234,7 @@ x["a"]
 x[c("a","e")]
 ```
 
-## Challenge 1.2
+## Challenge 1.3
 - Create an R vector of squares of 1 to 10
 - Find the minimum
 - Find the maximum
@@ -273,7 +304,81 @@ which(is.na(x)) # get the location of NA
 x[!is.na(x)] # Exclude all NAs from result
 ```
 
+## Challenge 1.4
+- Create a vector of 100 numbers
+- Set 10 of these to NA (random)
+- Print the locations of the missing values
+- Hint: Check out the R function **which()**
 
+## Programming in R
+- R is a block-structured language, where blocks are delineated by {}
+- Statements separated by newline characters, or with semicolon
+- Variable types are not declared (similar to JavaScript)
+
+## Loops in R
+```{r, echo=F,out.width='80%'}
+ knitr::include_graphics("images/06 Loops.png")
+```
+
+```{r, echo=T}
+x<-1:4
+y<-vector(mode="numeric",length = length(x))
+for(i in seq_along(x)){
+  y[i] <- x[i]
+}
+y
+```
+
+## If statement in R
+
+```{r, echo=T}
+x<-4
+y <- "Unknown"
+if(x %% 2 == 0){
+  y <- "Even Number"
+}
+y
+```
+
+
+## If-else statement in R
+
+```{r, echo=T}
+x<-5
+y <- "Unknown"
+if(x %% 2 == 0){
+  y <- "Even Number"
+}else{
+    y <- "Odd Number"
+}
+y
+```
+
+- It is important to note that **else** must be in the same line as the closing braces of the if statements.
+
+## If-else-if 
+
+```{r, echo=T}
+x<- -10
+
+if(x > 0){
+  print("Positive Number...")
+}else if (x < 0){
+    print("Negative Number...")
+} else{
+  print("Number is zero...")
+}
+```
+
+## **sprintf()** function for printing to console
+A wrapper for the C function **sprintf**, that returns a character vector containing a formatted combination of text and variable values.
+
+```{r, echo=T}
+sprintf("%s is %f feet tall", "Sven", 7.1) 
+sprintf("%f", pi)
+sprintf("%.3f", pi)
+sprintf("%1.0f", pi)
+```
 
 ## Summary
 - Atomic vectors, key type in R
