@@ -1,6 +1,6 @@
 ---
 title: '2. R Foundations - Lists and Functions'
-author: "Data Science for OR - J. Duggan"
+author: "CT5102 - J. Duggan"
 output:
   beamer_presentation:
     theme: "CambridgeUS"
