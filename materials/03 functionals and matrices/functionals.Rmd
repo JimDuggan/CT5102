@@ -18,8 +18,6 @@ library(ggplot2)
 - Functions
   + ... argument 
   + do.call() function
-  + Replacement functions
-  + returns a result (Matloff 2009).
 - Functionals
   + sapply()
   + lapply()
@@ -48,33 +46,6 @@ args
 do.call(sum, args)
 ```
 
-## Replacement Functions
- 
-- Replacement functions act like they modify their arguments in place, and have the special name `xxx<-`
-- They typically have two arguments (x and value), although they can have more, and they must return the modified object
-- The new value must be passed as a parameter named **value**
-
-## dim() function
-```{r,echo=T}
-x <- 1:6
-x
-
-dim(x) <- c(2,3)
-x
-```
-
-
-## Replacement Function Example
-```{r,echo=T}
-`second<-` <- function(x, value){
-  x[2] <- value
-  x
-}
-
-x <- 1:5
-second(x) <- 78
-x
-```
 
 
 ## Functionals
@@ -268,6 +239,34 @@ apply(m,2,sum) # sum the columns
 - Each column is a different subject, with grades drawn from a random normal distribution (function rnorm). - Name the columns
 - Each row is a students result
 - Use apply to calculate the average mark for each student, and add this result as a new column to the matrix
+
+## Replacement Functions
+ 
+- Replacement functions act like they modify their arguments in place, and have the special name `xxx<-`
+- They typically have two arguments (x and value), although they can have more, and they must return the modified object
+- The new value must be passed as a parameter named **value**
+
+## dim() function
+```{r,echo=T}
+x <- 1:6
+x
+
+dim(x) <- c(2,3)
+x
+```
+
+
+## Replacement Function Example
+```{r,echo=T}
+`second<-` <- function(x, value){
+  x[2] <- value
+  x
+}
+
+x <- 1:5
+second(x) <- 78
+x
+```
 
 
 ## Summary - Functionals and Matrices

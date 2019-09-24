@@ -1,0 +1,226 @@
+---
+title: '4. Base R- Data Frames'
+author: "CT5102 - J. Duggan"
+output:
+  beamer_presentation:
+    theme: "CambridgeUS"
+    colortheme: "dolphin"
+    fonttheme: "structurebold"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
+library(dplyr)
+```
+
+
+## Recap - R Data Types
+ 
+|| Homogenous| Heterogenous |
+|:------|:----------|:-----------|
+|1d | Atomic Vector|List|
+|2d | Matrix|**Data Frame/Tibble**|
+|nd | Array| |
+
+- The most common way of storing data in R
+- Under the hood, a data frame is a list of equal-length vectors
+- A two-dimensional structure, it shares properties of both a list and a matrix
+
+
+
+## Creating a data frame
+
+```{r,echo=T}
+d <- data.frame(x=1:3, y = LETTERS[1:3], z = letters[1:3])
+d
+d$x
+d$y
+d$z
+```
+
+## summary function with data frames
+
+```{r,echo=T}
+d <- data.frame(x=1:3, y = LETTERS[1:3], 
+                z = letters[1:3])
+d
+summary(d)
+```
+
+## mtcars data frame
+A data frame with 32 observations on 11 variables.
+
+- **mpg**	Miles/(US) gallon	
+- **cyl**	Number of cylinders	
+- **disp**	Displacement (cu.in.)	
+- **hp**	Gross horsepower	
+- **drat**	Rear axle ratio	
+- **wt**	Weight (1000 lbs)	
+- **qsec**	1/4 mile time	
+- **vs**	V/S	
+- **am**	Transmission (0 = automatic, 1 = manual)	
+- **gear**	Number of forward gears	
+- **carb**	Number of carburetors
+
+## mtcars sample data
+
+```{r,echo=T}
+knitr::kable(mtcars[1:10,1:6])
+```
+
+## mtcars using **str()**
+```{r,echo=T}
+str(mtcars)
+```
+## head() and tail() functions
+```{r,echo=T}
+head(mtcars[,1:6])
+tail(mtcars[,1:6])
+```
+
+## Subsetting rows
+```{r,echo=T}
+mtcars[mtcars$gear == 5,]
+```
+
+## Accessing rows/columns
+```{r,echo=T}
+mtcars[1:10,1:6]
+```
+
+## Filtering rows and columns
+```{r,echo=T}
+mtcars[mtcars$cyl == 6,c("mpg","cyl")]
+```
+
+## Challenge 4.1
+- List all the cars that have an **mpg** greater than the average
+- List the car(s) with the greatest displacement (**disp**)
+
+## subset()
+- The subset( ) function can also be used to select variables and observations.
+- Takes the data frame, the conditions, and the columns to return
+```{r,echo=T}
+subset(mtcars,cyl==6,select=c("mpg","cyl"))
+
+```
+
+## Processing a data frame with functions - sapply()
+- As a data frame is also a list, the apply family of functions can be used to process the list
+- sapply and lapply process a data frame on a column by column basis
+```{r,echo=T}
+sapply(subset(mtcars,cyl==6,select=c("mpg","cyl")),
+       function(col){min(col)})
+```
+
+## Processing a data frame with functions - apply()
+- The apply function can be used to process the data frame by row or by column
+```{r,echo=T}
+apply(subset(mtcars,cyl==6,select=c("mpg","cyl")),2,
+       function(col){min(col)})
+apply(subset(mtcars,cyl==6,select=c("mpg","cyl")),1,
+       function(row){max(row)})
+```
+
+## Adding new columns to a data frame
+- Often the initial data set may not contain sufficient information for analysis
+- Adding new variables (columns) is an important feature to have
+- Data frames support this: columns can be combined or new information used
+
+```{r,echo=T}
+mtcars$name <- rownames(mtcars)
+mtcars[1:5,-(1:8)]
+```
+
+## Deleting a column
+- To delete a column, set it to NULL
+
+```{r,echo=T}
+mytest <- mtcars
+mytest[1,1:3]
+mytest$mpg <- NULL
+mytest[1,1:3]
+```
+## Challenge 4.2
+Create a new column on mtcars that contains kilometers per gallon. 
+
+## Missing data - complete.cases()
+
+```{r,echo=T}
+d <- data.frame(x=1:3, y = LETTERS[1:3], 
+                z = letters[1:3])
+d[2,3] <- NA
+d
+complete.cases(d)
+d[complete.cases(d),]
+```
+
+## Exploring complete.cases()
+```{r,echo=T}
+mtcars1 <- subset(mtcars,select = mpg:disp)
+sum(complete.cases(mtcars1))
+
+mtcars1[4,3] <- NA
+mtcars1[4,]
+mtcars1[!complete.cases(mtcars1),]
+```
+
+## Challenge 4.3
+- Explore the data set nycflights13::flights
+- Find the total number of incomplete cases
+- Use sapply() to find the number of missing values for each column.
+
+## The tibble
+- Tibbles are data frames, but they tweak some older behaviours to make life a little easier
+- One of the unifying features of the tidyverse
+- To coerce a data frame to a tibble, use as_tibble()
+- A tibble can be created from individual vectors using tibble()
+
+
+```{r,echo=T}
+t <- tibble(x=1:3, y = LETTERS[1:3], z = letters[1:3])
+t
+```
+
+## Tibble abbreviations
+
+```{r,echo=T}
+t
+```
+
+|Abbreviation| Data Type |
+|:------|:--------|
+|int | integers |
+|dbl | double (numeric)|
+|chr | character vectors| 
+|dttm | date-times| 
+|fctr | categorical| 
+|date | dates |
+
+
+## Summary - Data Frames
+- Data frames/tibbles are the most common way of storing heterogeneous data in R
+- Under the hood, a data frame is a list of equal-length vectors, and shares properties of both a list and a matrix
+- Key for processing rectangular data, ideally in "tidy" format (every row is an observation, every column a variable)
+
+## Summary - Base R
+|| Homogenous| Heterogenous |
+|:------|:----------|:-----------|
+|1d | Atomic Vector|List|
+|2d | *Matrix*|Data Frame/Tibble|
+|nd | *Array*| |
+
+- Atomic Vectors
+- Lists
+- Functions and Functionals
+- Data Frames & Tibbles
+
+
+
+```{r,echo=F,fig.width=2, fig.height=2}
+# this is a hack to call plot but make the plot tiny
+plot(1:1,axes=FALSE,xlab = "", ylab="",cex = .001)
+```
+
+
