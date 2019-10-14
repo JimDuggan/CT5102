@@ -1,0 +1,151 @@
+---
+title: '9. The S4 Object System'
+author: "CT5102 - J. Duggan"
+output:
+  beamer_presentation:
+    theme: "CambridgeUS"
+    colortheme: "dolphin"
+    fonttheme: "structurebold"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(methods)
+```
+
+## S4 (Wickam 2019, Chapter 15)
+
+- A more formal approach to functional OOP
+- Underlying ideas similar to S3, but implementation is much stricter
+- Makes use of specialised functions for:
+  + Creating classes **setClass()**
+  + Generics **setGeneric()**
+  + Methods **setMethod()**
+- Provides multiple inheritance and multiple dispatch
+- A new component of S4 is the slot, a named component of an object that can be accessed using @ (pronounced at)
+- Include **library(methods)** when using S4
+
+
+## Basics
+
+```{r,echo=T}
+setClass("Person",
+         slots = c(
+           name = "character",
+           age  = "numeric"
+         )
+)
+
+john <- new("Person", name = "John Smith", age=35)
+```
+
+Given an S4 object, you can see its class with **is()** and access its slots with **\@** and **slot()**
+
+## Calling S4 functions
+```{r,echo=T}
+is(john)
+john@name
+john@age
+slot(john,"age")
+slot(john,"name")
+```
+
+## Accessing slots: Guidelines
+- Generally, onlyuse @ in your methods
+- Look for accessor functions that allow you to safely set and get slot values
+- When you develop a class, provide your own access functions
+- Creating a setter and getter for the age slot by
+  + Creating getter and setter generics usiing **setGeneric()**
+  + Defining methods with **setMethod()**
+
+## getter for slot age
+```{r,echo=T}
+setGeneric("age", function(x)standardGeneric("age")) # getter
+
+setMethod("age", "Person", function(x) x@age)
+
+age(john)
+```
+
+## setter for slot age
+```{r,echo=T}
+setGeneric("age<-", function(x, value)standardGeneric("age<-")) # setter
+
+setMethod("age<-", "Person", function(x, value){
+  x@age <- value
+  x
+})
+age(john) <- 29
+age(john)
+
+```
+
+## Creating S4 Classes
+- To define an S4 class, call setClass() with three arguments
+  + The class **name**. By convention S4 class names use UpperCamelCase
+  + A named character vector that describes the names and classes of the **slots** (fields). The pseudo-class ANY allows a slot to accept objects of any type
+  + A **prototype**, a list of default values for each type (optional but should be provided)
+
+## S4 class with 3 arguments
+```{r,echo=T}
+setClass("Person",
+         slots = c(
+           name = "character",
+           age  = "numeric"
+         ),
+         prototype=list(
+           name = NA_character_,
+           age  = NA_real_
+         )
+)
+
+test <- new("Person", name = "A.N. Other")
+str(test)
+```
+
+## S4 class with inheritance
+```{r,echo=T}
+setClass("Employee",
+         contains = "Person",
+         slots = c(
+           boss = "Person"
+         ),
+         prototype=list(
+           boss = new("Person")
+         )
+)
+str(new("Employee"))
+```
+
+## Helper
+User facing classes should always be paired with a user-friendly helper. A helper should always:
+
+- Have the same name as the class
+- Have a thoughtfully crafted user interface with carefully chosen default values
+- Create error messages tailored towards an end user
+- Finish by calling **methods::new()**
+
+## Example
+```{r,echo=T}
+Person <- function(name, age=NA){
+  age <- as.double(age)
+  new("Person", name=name, age=age)
+}
+
+Person("A.N. Other")
+
+```
+
+## S4 Summary
+
+
+
+```{r,echo=F,fig.width=2, fig.height=2}
+# this is a hack to call plot but make the plot tiny
+plot(1:1,axes=FALSE,xlab = "", ylab="",cex = .001)
+```
+
+
+
+
