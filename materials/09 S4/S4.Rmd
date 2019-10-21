@@ -1,5 +1,5 @@
 ---
-title: '9. The S4 Object System'
+title: '9. Introduction to the S4 Object System'
 author: "CT5102 - J. Duggan"
 output:
   beamer_presentation:
@@ -52,7 +52,7 @@ slot(john,"name")
 ```
 
 ## Accessing slots: Guidelines
-- Generally, onlyuse @ in your methods
+- Generally, only use @ in your methods
 - Look for accessor functions that allow you to safely set and get slot values
 - When you develop a class, provide your own access functions
 - Creating a setter and getter for the age slot by
@@ -133,12 +133,105 @@ Person <- function(name, age=NA){
   new("Person", name=name, age=age)
 }
 
-Person("A.N. Other")
-
+p1 <- Person("A.N. Other")
+p1
 ```
 
-## S4 Summary
+## Validator
+- The constructor automatically checks that the slots have correct classes
+- More complicated checks may be required
+- For example, name and age may have to be the same vector length
+- We can write a validator with **setValidity()**
+```{r,echo=T,eval=F}
+setValidity("Person", function(object) {
+  if(length(object@name) != length(object@age)){
+    "@name and @age must be the same length"
+  }else{
+    TRUE
+  }
+})
+```
 
+
+## Generics and Methods
+- The job of a generic is to perform method dispatch (find the specific implementation for the combination of classes passed to the generic)
+- To create a new S4 generic, call **setGeneric()** with a function that calls **stanardGeneric()**
+- By convention, new S4 generics should use lowerCamelCase.
+- It is bad practice to use {} as it triggers a special case that is more computationally expensive
+```{r,echo=T,eval=F}
+setGeneric("myGeneric", 
+           function(x) standardGeneric("myGeneric"))
+```
+
+## Generics and Methods
+- A generic isn't useful without some methods, and in S4 methods are defined with **setMethod()**
+- There are three important arguments:
+  + The name of the generic
+  + The name of the class
+  + The method itself
+```{r,echo=T,eval=F}
+setMethod("myGeneric", "Person", function(x){
+  # method implementation
+})
+```
+
+## Show method
+- The most commonly defined S4 method that controls printing is **show()**.
+- To define a method for an existing generic, you must first determine its arguments
+- Our show method needs to have a single argument object
+```{r,echo=T}
+args(getGeneric("show"))
+```
+
+## Writing the method
+```{r,echo=T}
+setMethod("show", "Person", function (object){
+  cat(is(object)[[1]], "\n",
+  "   Name: ", object@name, "\n",
+  "   Age:  ", object@age, "\n",
+  sep="")
+})
+
+p1
+```
+
+## Accessors - getter function
+- Slots should be considered an internal implementation detail: user code should avoid accessing them directly
+- Typically, a generic will be defined so that multiple classes can use the same interface
+```{r,echo=T}
+setGeneric("name", function(x) standardGeneric("name"))
+setMethod("name", "Person", function(x) x@name)
+
+name(p1)
+```
+
+## Accessors - setter function
+- If the slot is writeable, a setter function should be provided
+- Should also include **validObject()** in the setter
+
+```{r,echo=T}
+setGeneric("name<-", function(x, value) 
+            standardGeneric("name<-"))
+setMethod("name<-", "Person", function(x, value){ 
+  x@name <- value
+  x})
+
+name(p1) <- "Test Name"
+name(p1)
+```
+
+## Exercises and Further features of S4
+- Exercises
+  + Add age() accessors for the Person class
+  + In ther definition of the generic, why is it necessary to repeat the name of the generic twice
+- Method Dispatch
+  + Multiple inheritance - a class can have multiple parents
+  + Multiple dispatch - a generic can use multiple arguments to pick a method
+
+
+## Examples of S4 - Mapping functions
+
+## S4 Summary
 
 
 ```{r,echo=F,fig.width=2, fig.height=2}
