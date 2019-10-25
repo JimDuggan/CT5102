@@ -1,5 +1,5 @@
 ---
-title: '9. Introduction to the S4 Object System'
+title: '10. Introduction to the S4 Object System'
 author: "CT5102 - J. Duggan"
 output:
   beamer_presentation:
@@ -230,9 +230,79 @@ name(p1)
 
 
 ## Examples of S4 - Mapping functions
+- The **sp** package defines a number of S4 classes for handling spatial data: points, lines and areas (Brunsdon and Comber 2019)
+- The package **GISTools** contains useful data sets
 
-## S4 Summary
+|Without Attributes| With Attributes|ArcGIS equivalent |
+|:------|:----------|:-----------|
+|SpatialPoints|SpatialPointsDataFrame|Point shapefiles |
+|SpatialLines| SpatialLinesDataFrame|Line Shapefiles|
+|SpatialPolygons| SpatialPolygonsDataFrame|Polygon shapefiles|
 
+## Georgia Data Set
+```{r,echo=T,message=F}
+library(GISTools)
+library(sp)
+library(tmap)
+
+data(georgia)
+class(georgia)
+getSlots("SpatialPolygonsDataFrame")
+```
+
+## Exploring the data (1st county of 159)
+```{r,echo=T,message=F}
+length(georgia@polygons)
+str(georgia@polygons[[1]])
+```
+
+## Getting the data
+```{r,echo=T,message=F}
+head(georgia@data)
+```
+
+## Displaying the Map
+```{r,echo=T,message=F,fig.width=3, fig.height=2.5}
+qtm(georgia,fill="red",style="natural")
+```
+
+## Filling by attribute
+```{r,echo=T,message=F,fig.width=6, fig.height=2}
+qtm(georgia,fill="MedInc",text="Name",text.size=0.1,
+    format="World_wide",style="classic",
+    text.root=5,fill.title="Median Income")
+```
+
+
+## New sf package
+```{r,echo=T,message=F,fig.width=6, fig.height=2}
+library(GISTools)
+library(sp)
+library(sf)
+library(tmap)
+
+data(georgia)
+georgia_sf <- st_as_sf(georgia)
+class(georgia_sf)
+```
+
+## New sf package
+```{r,echo=T,message=F,fig.width=6, fig.height=2}
+georgia_sf[1:2,]
+```
+
+## Displaying the Map (S3 class)
+```{r,echo=T,message=F,fig.width=3, fig.height=2.5}
+qtm(georgia_sf,fill="red",style="natural")
+```
+
+## Summary
+- S4 is a more formal approach to functional OOP
+- Underlying ideas similar to S3, but implementation is much stricter
+- Include **library(methods)** when using S4
+- Popular packages
+  + **sp** for maps (**sf** uses **sp**)
+  + Bioconductor (R libraries for BioInformatics)
 
 ```{r,echo=F,fig.width=2, fig.height=2}
 # this is a hack to call plot but make the plot tiny
