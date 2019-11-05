@@ -1,5 +1,5 @@
 ---
-title: '10. Introduction to the S4 Object System'
+title: '11. Introduction to the S4 Object System'
 author: "CT5102 - J. Duggan"
 output:
   beamer_presentation:
