@@ -2,7 +2,7 @@
 % Please edit documentation in R/stackp.R
 \name{push}
 \alias{push}
-\title{Pushes a value onto the stack}
+\title{Pushes a value onto the stack, updated comments}
 \usage{
 push(sp, val)
 }
@@ -15,7 +15,7 @@ push(sp, val)
 The updated stack object
 }
 \description{
-Pushes a value onto the stack
+Pushes a value onto the stack, updated comments
 }
 \examples{
 s <- stackp()

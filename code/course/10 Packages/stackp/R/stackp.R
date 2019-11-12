@@ -8,7 +8,7 @@ stackp <- function(){
 }
 
 
-#' Pushes a value onto the stack
+#' Pushes a value onto the stack, updated comments
 #'
 #' @param sp is the current stack object
 #' @param val is the value to be added to the stack

@@ -1,0 +1,2 @@
+push                    Pushes a value onto the stack
+stackp                  The constructor for the class stackp
