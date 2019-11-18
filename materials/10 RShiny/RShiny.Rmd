@@ -1,11 +1,12 @@
 ---
-title: '10. RShiny - An Introduction'
+title: "11. RShiny - An Introduction"
 author: "CT5102 - J. Duggan"
 output:
   beamer_presentation:
-    theme: "CambridgeUS"
-    colortheme: "dolphin"
-    fonttheme: "structurebold"
+    colortheme: dolphin
+    fonttheme: structurebold
+    theme: CambridgeUS
+  slidy_presentation: default
 ---
 
 ```{r setup, include=FALSE}
@@ -22,6 +23,133 @@ library(shiny)
   + a server function contains the instructions that your computer needs to build your app
   + a call to the shinyApp function, creates Shiny app objects from an explicit UI/server pair
 
+## Basic Template
+
+```{r,echo=T, eval=F}
+library(shiny)
+
+# Define UI ----
+ui <- fluidPage(
+  
+)
+
+# Define server logic ----
+server <- function(input, output) {
+  
+}
+
+# Launch app
+shinyApp(ui = ui, server=server)
+```
+
+## Layout
+- Shiny uses the function fluidPage to create a display that automatically adjusts to the dimensions of your user’s browser window. 
+- You lay out the user interface of your app by placing elements in the fluidPage function.
+- For example, the ui function below creates a user interface that has a title panel and a sidebar layout, which includes a sidebar panel and a main panel. Note that these elements are placed within the fluidPage function.
+```{r,echo=T, eval=F}
+ui <- fluidPage(
+  titlePanel("title panel"),
+
+  sidebarLayout(
+    sidebarPanel("sidebar panel"),
+    mainPanel("main panel")
+  )
+)
+```
+
+## Run file - 01 Layout.R
+- **titlePanel** and **sidebarLayout** are the two most popular elements to add to **fluidPage**
+- They create a basic Shiny app with a sidebar
+- **sidebarLayout** always takes two arguments
+  + **sidebarPanel** function output
+  + **mainPanel** function output
+```{r, echo=F,out.width='90%'}
+ knitr::include_graphics("images/02 Layout.png")
+```
+
+
+## HTML Content
+- Content can be added by placing it inside a Panel function
+- For more advanced content, Shiny's HTML tag functions can be used. These functions parallel common HTML5 tags, e.g.
+
+|Shiny Function| HTML5 Equivalent| Creates |
+|:------|:----------|:-----------|
+|p |\<p\>|A paragraph of text |
+|h1 |\<h1\>|A first level header|
+|h2..h6 |\<h2\>..\<h6\>|Lower level headers|
+| a| \<a\>|A hyperlink |
+| HTML| |Directly passes a character string as HTML code |
+```{r,echo=T, eval=T}
+h3("Hello World")
+```
+
+## HTML Example
+```{r,echo=T, eval=F}
+ui <- fluidPage(
+  titlePanel("My Shiny App"),
+  sidebarLayout(
+    sidebarPanel(),
+    mainPanel(
+      h1("First level title"),
+      p("This is a paragraph of text"),
+      strong("This is bold text"),
+      br(),
+      h2("Second level title"),
+      img(src="RStudio.jpg")
+    )
+  )
+)
+```
+
+## Output
+
+```{r, echo=F,out.width='90%'}
+ knitr::include_graphics("images/03 HTML.png")
+```
+
+## Adding Control Widgets
+```{r, echo=F,out.width='90%'}
+ knitr::include_graphics("images/04 Widgets.png")
+```
+
+## Running Code Example
+```{r, echo=F,out.width='90%'}
+ knitr::include_graphics("images/05 Widgets 02.png")
+```
+
+## Display Reactive Output
+- Build reactive output to displays in yoru Shiny app
+- Shiny provides a familiy of functions that turn R objects into output for your UI
+
+|Output Function| Creates|
+|:------|:----------|
+|dataTableOutput |DataTable|
+|htmlOutput      |raw HTML|
+|imageOutput |image|
+|plotOutput |plot|
+|tableOutput|table|
+|textOutput|text|
+|uiOutput |raw HTML|
+|verbatimTextOutput |text|
+
+## See file 04 Output.R
+```{r, echo=F,out.width='100%'}
+ knitr::include_graphics("images/06 Reactive.png")
+```
+
+## See file 05 Output.R
+```{r, echo=F,out.width='100%'}
+ knitr::include_graphics("images/07 Reactive.png")
+```
+
+
+## Reactive Summary
+
+- use an *Output function in the ui to place reactive objects in your Shiny app,
+- use a render* function in the server to tell Shiny how to build your objects,
+- surround R expressions by curly braces, {}, in each render* function,
+- save your render* expressions in the output list, with one entry for each reactive object in your app, and
+- create reactivity by including an input value in a render* expression.
 
 ## User Interface Object (1/2)
 
@@ -86,20 +214,7 @@ server <- function(input, output) {
 
 ## Server Function (2/2)  
 ```{r,echo=T, eval=F}
-  output$distPlot <- renderPlot({
-    
-    x    <- faithful$waiting
-    bins <- seq(min(x), max(x), 
-                length.out = input$bins + 1)
-    
-    hist(x, breaks = bins, col = "#75AADB", 
-         border = "white",
-         xlab = "Waiting time to next eruption (in mins)",
-         main = "Histogram of waiting times")
-    
-  })
-  
-}
+
 shinyApp(ui = ui, server = server)
 ```
 
@@ -119,47 +234,95 @@ shinyApp(ui = ui, server = server)
 shinyApp(ui = ui, server = server)
 
 
-## Basic Template
-
-```{r,echo=T, eval=F}
-library(shiny)
-
-# Define UI ----
-ui <- fluidPage(
+## Challenge
+- Replicate Lesson 5 from online tutorial
+- https://shiny.rstudio.com/tutorial/written-tutorial/lesson5/
+- counties.rds
+  + Name of each county in the US
+  + Total population
+  + Percentage residents who are White, Black, Hispanic or Asian.
   
-)
+  
+## Maps Output
+```{r, echo=F,out.width='100%'}
+ knitr::include_graphics("images/08 Maps.png")
+```
+  
+## Reactive Expressions
+- Reactive expressions let you control which part of the apps to update when
+- Prevents unnecessary computation that can slow down your app.
+```{r, echo=F,out.width='80%'}
+ knitr::include_graphics("images/09 Expression.png")
+```
 
-# Define server logic ----
+## The Server Logic
+```{r,echo=T, eval=F}
 server <- function(input, output) {
+  
+  output$plot <- renderPlot({
+    
+    data <- getSymbols(input$symb, src = "yahoo",
+               from = input$dates[1],
+               to = input$dates[2],
+               auto.assign = FALSE)
+    
+    chartSeries(data, theme = chartTheme("white"),
+                type = "line", log.scale = input$log, 
+                TA = NULL)
+  })
   
 }
 ```
 
-## Layout
-- Shiny uses the function fluidPage to create a display that automatically adjusts to the dimensions of your user’s browser window. Y
-- You lay out the user interface of your app by placing elements in the fluidPage function.
-- For example, the ui function below creates a user interface that has a title panel and a sidebar layout, which includes a sidebar panel and a main panel. Note that these elements are placed within the fluidPage function.
-```{r,echo=T, eval=F}
-ui <- fluidPage(
-  titlePanel("title panel"),
+## A Problem
+- Every time we resize change the y-axis scale, renderPlot() is called
+- Two actions
+  + Fetches the data from Yahoo finance with **getSymbols()**
+  + Redraws the chart with the corrected axis
+- Not good, as we have to re-fetch the data ti re-draw the plot
+- Unnecessary work (and Yahoo server might disconnect as you begin to look like a bot)
+- Solution - reactive expressions
 
-  sidebarLayout(
-    sidebarPanel("sidebar panel"),
-    mainPanel("main panel")
-  )
-)
+## A Reactive Expression
+- A reactive expression is an R expression that uses a widget and returns a value
+- The reactive expression will update this value whenever the original widget changes
+- To create a reactive expression, use the reactive function, which takes an R expression surrounded by braces
+
+## Coding the solution
+
+```{r,echo=T, eval=F}
+server <- function(input, output) {
+  dataInput <- reactive({
+    getSymbols(input$symb, src = "yahoo",
+               from = input$dates[1],
+               to = input$dates[2],
+               auto.assign = FALSE)
+  })
+  
+  output$plot <- renderPlot({
+    
+    chartSeries(dataInput(), theme = chartTheme("white"),
+                type = "line", log.scale = input$log, 
+                TA = NULL)
+  })
+  
+}
 ```
 
-
-## HTML Content
-
+## Summary - Reactive Expression
+- A reactive expression saves its result the first time you run it
+- The next time the reactive expression is called, it checks if the saved value has become out of date (i.e. whether the widgets it depends on has changed)
+- If the value is out of date, the reactive object will recalculate it (and then save the new result)
+- If the value is up-to-date, the reactive expression will return the saved value without doing any computation
 
 
 ## RShiny Summary
-- Implements generic-function OO
-- A special type of function called a generic function decides which method to call (i.e. method dispatch)
-- S3 is a very casual system, it has no formal definition of classes
-- Inheritance can be used to leverage existing R S3 classes
+- Useful way to provide a web interface
+- See https://shiny.rstudio.com
+
+```{r, echo=F,out.width='100%'}
+ knitr::include_graphics("images/10 Shiny.png")
+```
 
 
 ```{r,echo=F,fig.width=2, fig.height=2}
