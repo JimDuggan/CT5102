@@ -14,9 +14,14 @@ ui <- fluidPage(
                   label = "Number of bins:",
                   min = 1,
                   max = 50,
-                  value = 30)
-      
-    ),
+                  value = 30),
+      selectInput("method", 
+                label = "Choose a model",
+                choices = c("lm", 
+                            "glm",
+                            "loess", 
+                            "gam"),
+                selected = "lm")),
     # Main panel for displaying outputs ----
     mainPanel(
       
@@ -54,7 +59,7 @@ server <- function(input, output) {
 
   output$f_lm <- renderPlot({
     ggplot(faithful,aes(x=waiting,y=eruptions))+geom_point()+
-      geom_smooth(method="lm")
+      geom_smooth(method=input$method)
   })
   
   output$text_o <- renderTable({
