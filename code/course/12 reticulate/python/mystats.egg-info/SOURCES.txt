@@ -1,0 +1,8 @@
+setup.py
+mystats/__init__.py
+mystats/functions.py
+mystats.egg-info/PKG-INFO
+mystats.egg-info/SOURCES.txt
+mystats.egg-info/dependency_links.txt
+mystats.egg-info/not-zip-safe
+mystats.egg-info/top_level.txt
