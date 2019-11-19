@@ -1,7 +1,7 @@
 ui <- fluidPage(
   titlePanel("My Shiny App"),
   sidebarLayout(
-    sidebarPanel(),
+    sidebarPanel(h1("Hello")),
     mainPanel(
       h1("First level title"),
       p("This is a paragraph of text"),

@@ -2,13 +2,13 @@ library(shiny)
 
 # Define UI ----
 ui <- fluidPage(
-  titlePanel("Basic widgets"),
+  titlePanel("Basic widgets test"),
   
   fluidRow(
     
     column(3,
            h3("Buttons"),
-           actionButton("action", "Action"),
+           actionButton("action", "Submit"),
            br(),
            br(), 
            submitButton("Submit")),

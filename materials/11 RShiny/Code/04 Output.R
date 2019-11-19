@@ -12,7 +12,7 @@ ui <- fluidPage(
                               "Percent Black",
                               "Percent Hispanic", 
                               "Percent Asian"),
-                  selected = "Percent White"),
+                  selected = "Percent Hispanic"),
       
       sliderInput("range", 
                   label = "Range of interest:",
@@ -27,7 +27,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   output$selected_var <- renderText({
-    paste("You have selected this:",input$var, "and ",input$range)
+    paste("You have selected this today:",input$var, "and ",input$range)
   })
   
 }

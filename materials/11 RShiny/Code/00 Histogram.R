@@ -1,3 +1,6 @@
+library(shiny)
+library(ggplot2)
+
 ui <- fluidPage(
   titlePanel("Hello Shiny!"),
   
@@ -18,7 +21,10 @@ ui <- fluidPage(
     mainPanel(
       
       # Output: Histogram ----
-      plotOutput(outputId = "distPlot")
+      plotOutput(outputId = "distPlot"),
+      plotOutput(outputId = "f_lm"),
+      tableOutput(outputId = "text_o"),
+      verbatimTextOutput(outputId = "vb_o")
       
     )
   )
@@ -45,6 +51,20 @@ server <- function(input, output) {
          main = "Histogram of waiting times")
     
   })
+
+  output$f_lm <- renderPlot({
+    ggplot(faithful,aes(x=waiting,y=eruptions))+geom_point()+
+      geom_smooth(method="lm")
+  })
+  
+  output$text_o <- renderTable({
+    faithful[1:10,]
+  })
+  
+  output$vb_o <- renderText({
+    summary(faithful)
+  })
+    
 }
 
 shinyApp(ui = ui, server = server)
