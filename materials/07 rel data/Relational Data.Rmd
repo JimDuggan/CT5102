@@ -4,7 +4,7 @@ author: "CT5102 - J. Duggan"
 output:
   beamer_presentation:
     theme: "CambridgeUS"
-    colortheme: "dolphin"
+    colortheme: "seahorse"
     fonttheme: "structurebold"
 ---
 
