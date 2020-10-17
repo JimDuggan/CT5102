@@ -25,6 +25,11 @@ for (i in 1:length(x)){
   print(i)
 }
 
+for (i in 1:length(x)){
+  cat("Index = ",i, "Value = ",x[i],"Name = ",names(x)[i],"\n")
+}
+
+
 
 
 

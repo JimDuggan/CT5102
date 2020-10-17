@@ -19,7 +19,11 @@ diag(m) <- 0
 
 g1 <- graph_from_adjacency_matrix( m )
 
-
-
 plot(g1)
 
+m["A",] <- 0
+m[,"J"]<-0
+
+g1 <- graph_from_adjacency_matrix( m )
+
+plot(g1)

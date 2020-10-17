@@ -19,5 +19,5 @@ y1 <- lapply(x,function(x1,a,b,c){
 }, 4, -2, 10)
 
 qplot(x,y)
-qplot(x,y2)
+qplot(x,y1)
 

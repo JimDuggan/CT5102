@@ -5,3 +5,7 @@
 clean <- function(v){
   v[!duplicated(v)]
 }
+
+v <- c(1:5,rep(3,2))
+
+ans <- clean(v)

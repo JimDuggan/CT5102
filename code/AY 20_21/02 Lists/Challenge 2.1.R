@@ -5,6 +5,8 @@
 #   A vector of integers (11:20)
 #   A sequence of lower case letters (A-Z)
 
+l <- list(1:10,LETTERS[1:26],list(11:20,letters[1:26]))
+
 # The first element as a vector
 l[[1]][1]
 # The second element as a vector
@@ -30,7 +32,7 @@ l[[3]][[2]][23:25]
 
 
 
-l <- list(1:10,LETTERS[1:26],list(11:20,letters[1:26]))
+
 
 # The first element as a vector
 # The second element as a vector
