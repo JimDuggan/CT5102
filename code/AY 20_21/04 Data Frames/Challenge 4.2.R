@@ -9,7 +9,7 @@ mtcars[mtcars[,"mpg"]>avr,]
 
 mtcars[mtcars$mpg > avr,]
 
-subset(mtcars,mpg > avr)
+subset(mtcars,mpg > avr,1)
 
 # List the car(s) with the greatest displacement
 max_d <- max(mtcars$disp)
