@@ -24,4 +24,7 @@ grid_summ <- eirgrid17 %>%
 new_data <- left_join(grid_summ,temp_summ,by=c("month","day"))
 
 ggplot(new_data,aes(x=MinTemperature,y=MaxDemand,colour=station))+
-  geom_point()+geom_smooth()
+  geom_point()+geom_smooth()+facet_wrap(~station,ncol=1)
+
+ggplot(new_data,aes(x=MinTemperature,y=MaxDemand,colour=station))+
+  geom_point()+facet_wrap(~station,ncol=1)+geom_smooth()
