@@ -11,6 +11,12 @@ mpg %>% select(displ,cty,hwy) %>%
      map(mean) -> l1
 
 mpg %>% select(displ,cty,hwy) %>%
+  lapply(mean) -> l1
+
+mpg %>% select(displ,cty,hwy) %>%
+  sapply(mean) 
+
+mpg %>% select(displ,cty,hwy) %>%
   map_dbl(mean)
 
 mpg %>% select(displ,cty,hwy) %>%

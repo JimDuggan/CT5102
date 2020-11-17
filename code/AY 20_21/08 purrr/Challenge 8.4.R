@@ -10,6 +10,7 @@ library(dplyr)
 
 mpg %>% group_split(manufacturer) %>%
       map_df(~{
+        browser()
         mod <- lm (.$cty~.$displ)
         summ <- summary(mod)
         tibble(Manufacturer=first(.$manufacturer),
