@@ -1,14 +1,4 @@
 #--------------------------------------------------------------------------------------
-# describe the difference between an enclosing environment and a binding environment
-# draw a diagram of the following code
-
-e <- new.env()
-
-e$f1 <- function()1
-
-y <- e$f1()
-
-#--------------------------------------------------------------------------------------
 # what does the following code return. Explain your answer clearly
 f2 <- function (x){
   function(y){
@@ -16,6 +6,7 @@ f2 <- function (x){
   }
 }
 
+f1 <- f2(5)
 f2(5)(10)
 
 # Draw a diagram of the global environment after the following code has been run

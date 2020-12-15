@@ -25,9 +25,9 @@ data <- tibble(Ids=c("1111111","1111112","1111113","1111114","1111115"),
                CS102=c(50,60,54,91,46),
                CS103=c(51,71,48,49,59),
                CS104=c(70,81,58,39,45),
-               CS105=c(61,56,68,69,76))
+               CS105=c(61,56,68,69,276))
 
-tidy <- gather(data,key=SubjectCode,value=Result,CS101:CS105) %>% 
+tidy <- pivot_longer(data,names_to = "SubjectCode",values_to="Result",CS101:CS105) %>% 
             mutate(Grade=case_when(
                         Result < 40 ~ "Fail",
                         Result < 50 ~ "Pass",
