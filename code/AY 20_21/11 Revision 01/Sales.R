@@ -26,8 +26,18 @@ t1_l <- pivot_longer(t1,
 jd <- left_join(t1_l,t2)
 
 
-ggplot(jd,aes(x=Year,y=Sales,shape=Type))+facet_wrap(~Region)
 
-ggplot(jd,aes(x=Year,y=Sales,shape=Type))+geom_point()+facet_wrap(~Region)
+ggplot(jd,aes(x=Year,y=Sales,shape=Type))+geom_point()+
+  facet_wrap(~Region,ncol=1)
+
+jd %>% group_by(Type,Year) %>%
+       summarise(Sales=sum(Sales))
+
+jd %>% group_by(Year, Region) %>%
+       summarise(SumSales=sum(Sales),
+                 MinSales=min(Sales))
+
+
+
 
 
