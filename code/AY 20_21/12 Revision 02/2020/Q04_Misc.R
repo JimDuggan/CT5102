@@ -15,7 +15,7 @@ rownames(m) <- c("Row 1", "Row 2")
 colnames(m) <- c("Col 1", "Col 2", "Col 3") 
 
 # Part 3
-l <- list(a=1:2,b="Hello",c=list(d=3:4,e=c(T,F),f=5:6))
+l <- list(a=1:2,b="Hello",c=list(d=3:4,e=c(T,F)))
 
 str(l[1:2])
 
