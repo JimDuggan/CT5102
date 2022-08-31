@@ -22,7 +22,7 @@ Details on the individual lectures are:
 
 __(1) Base R__
 
-* *Lecture 01* -  [**Vectors**](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/01-vectors.pdf)
+* *Lecture 01* -  [**Vectors**](https://github.com/JimDuggan/CT5102/blob/master/materials/Lectures/01%20Vectors/01-vectors.pdf)
 
 
 
