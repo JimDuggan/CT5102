@@ -22,8 +22,8 @@ Details on the individual lectures are:
 
 __(1) Base R__
 
-* *Lecture 01* -  [**Atomic Vectors**](https://github.com/JimDuggan/CT5102/tree/master/materials/01%20atomic%20vectors)
-* *Lecture 02* -  [**Lists and Functions**](https://github.com/JimDuggan/CT5102/tree/master/materials/02%20lists%20%20and%20functions)
+* *Lecture 01* -  [**Vectors**](https://github.com/JimDuggan/CT5102/tree/master/materials/Lectures/01-vectors.pdf)
+
 
 
 

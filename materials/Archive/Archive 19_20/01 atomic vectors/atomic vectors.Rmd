@@ -255,7 +255,7 @@ y
 
 ```{r, echo=F,out.width='90%',fig.cap='Vectorisation in R'}
  knitr::include_graphics("images/02 Vectorisation.png")
- ```
+```
  
 ## Vectorised if/else
 Vectors can also be processed using the vectorized ifelse(b,u,v) function, which accepts a boolean vector b and allocates the element-wise results to be either u or v. 
