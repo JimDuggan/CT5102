@@ -116,7 +116,7 @@ str(x_dbl)
 
 ## Character type 
 * **Character**, which represents values that are in string format.
-```{r}
+```{r, echo=T}
 x_chr<- c("One","Two","Three","Four","Five")
 
 x_chr
