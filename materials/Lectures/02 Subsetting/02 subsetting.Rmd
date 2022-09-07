@@ -550,6 +550,7 @@ length(sw_people1)
 
 ```{r, echo=FALSE}
 characters <- c()
+
 for(i in seq_along(sw_people1)){
   if(as.numeric(sw_people1[[i]]$height) >= 225){
     characters <- c(characters,sw_people1[[i]]$name)
