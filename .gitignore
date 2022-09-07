@@ -38,4 +38,5 @@ vignettes/*.pdf
 
 # Source code for slides
 01 Vectors.Rmd
+02 subsetting.Rmd
 

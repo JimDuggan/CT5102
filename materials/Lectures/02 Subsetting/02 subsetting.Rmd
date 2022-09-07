@@ -566,6 +566,25 @@ characters
 ```
 
 
+## Exercise 3
+* Based on the list `sw_species`, and given that each species has a `classification`, create the following tabular summary, again using a loop to iterate through the list. 
+* Make use of the `table()` function
+
+```{r, echo=FALSE}
+c_species <- vector(mode="character",length=length(sw_species))
+for(i in seq_along(sw_species)){
+  c_species[i] <- sw_species[[i]]$classification
+}
+t_species <- table(c_species)
+```
+
+```{r, echo=T}
+# A tabular summary of the types of species
+t_species
+
+```
+
+
 ## Lecture Summary
 * The four main ways to subset a vector, namely, by positive integer, the minus sign, logical vectors, and vector element names.
 * The role of the `[[` operator for processing lists, and how to distinguish this from the `[`  operator.
