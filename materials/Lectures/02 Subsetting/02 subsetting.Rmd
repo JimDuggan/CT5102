@@ -464,78 +464,112 @@ length(target_list)
 ## An additional task
 In this case, we look to extract the movie titles into a new data structure, in this case an atomic vector.
 
-## Useful R Functions (1/2)
-| R Function       | Description                                                        |
-| :---             | :---                                                               |
-| `as.vector()`    | Coerces its argument into a vector                                 |
-| `c()`            | Used to create an atomic vector, with elements separated by commas |
-| `head()`         | Lists the first six values of a data structure                     |
-| `is.logical()`   | A test to see if a variable is a logical type                      |
-| `is.integer()`   | A test to see if a variable is an integer type                     |
-| `is.double()`    | A test to see if a variable is a double type                       |
-| `is.character()` | A test to see if a variable is a character type                    |
-| `is.na()`        | A function to test for the presence of NA values                   |
-| `ifelse()`       | An if-else vectorised function that operates on atomic vectors     |
-| `length()`       | Returns the length of an atomic vector or list                     |
-| `mean()`         | Calculates the mean of a vector                                    |
-| `names()`        | Can be used to show the vector names, or set the vector names      |
-| `str()`          | Compactly displays the internal structure of a variable            |
-| `set.seed()`     | Provides a way to initialize a pseudorandom number generator.      |
 
-## Useful R Functions (2/2)
-| R Function       | Description                                                        |
-| :---             | :---                                                               |
-| `sample()`       | Generates a random sample of values, with or without replacement   |
-| `summary()`      | A function that provides a useful summary of a variable            |
-| `tail()`         | Lists the final six values of a data structure                     |
-| `table()`        | Builds a table of frequency data from an input atomic vector       |
-| `typeof()`       | Displays the atomic vector type                                    |
-| `unlist()`       | Converts a list to an atomic vector                                |
-
-## Exercise 1
-Predict what the types will be for the following variables, and then verify your results in R.
 ```{r, echo=T}
-v1 <- c(1L, FALSE)
-v2 <- c(1L, 2.0, FALSE)
-v3 <- c(2.0, FALSE, "FALSE")
-v4 <- c(1:20, seq(1,10,by=.5))
-v5 <- unlist(list(1:10,list(11:20,"Hello")))
+# Create a movies vector to store the movie names
+movies <- vector(mode="character",
+                 length = length(target_list))
+# Iterate through the list to extract the movie title
+for(i in seq_along(target_list)){
+  movies[i]<-target_list[[i]]$title
+}
+movies
 ```
 
-## Exercise 2
-Create the following atomic vector, which is a combination of the character string *St* and a sequence of numbers from 1 to 7. Explore how the R function `paste0()` can be used to generate the solution. Type `?paste0` to check out how this function can generate character strings.
+## Creating a new list
+* One feature of R you will discover is that there are often may ways to achieve the same outcome. 
+* For example, another way to access the movies of George Lucas would be to re-arrange the *list of lists* into a single list, where each list element is an atomic vector of values (each of size seven). 
+* The process for creating the new data structure is:
 
-```{r,include=FALSE}
-slist <- paste0("St-",1:7)
+  + Create a new list (`sw_films1`) of elements you wish to store (for example, movie title, episode_id  and director) from the original list. This new list initially contains empty vectors.
+  + Loop through the `sw_films` list and append each movie title and director to the corresponding element of `sw_films1`
+
+## Sample solution
+```{r,echo=T}
+sw_films1 <- list(title=c(), episode_id=c(), director=c())
+for(i in seq_along(sw_films)){
+  sw_films1$title      <- c(sw_films1$title,
+                            sw_films[[i]]$title)
+  sw_films1$episode_id <- c(sw_films1$episode_id,
+                            sw_films[[i]]$episode_id)
+  sw_films1$director   <- c(sw_films1$director,
+                            sw_films[[i]]$director)
+}
+str(sw_films1)
+```
+
+## Parallel Vectors
+* Notice that we now have one list, and this list has three elements, each an atomic vector of size seven.
+* These can be viewed as *parallel vectors*, where each vector is the same size, and the i-th element of each vector are related.  
+* This feature can be exploited to filter related atomic vectors using logical vector subsetting.
+
+```{r,echo=T}
+cat(sw_films1$title[1],"-",sw_films1$episode_id[1],"-",
+    sw_films1$director[1],"\n")
+
+sw_films1$title[sw_films1$director=="George Lucas"]
+```
+
+
+
+## Useful R Functions 
+| R Function       | Description                                                                    |
+| :---             | :---                                                                           |
+| `as.list()`      | Coerces the input argument into a list.                                        |
+| `paste0()`       | Converts arguments to character strings and then concatenates (with no spaces) |
+| `rpois()`        | Generates up to n random numbers from a Poisson distribution with mean lambda  |
+| `seq_along()`    | Generates a regular sequence that can be used to iterate over vectors          |
+| `which()`        | Give the TRUE indices of a logical object                                      |
+
+
+## Exercise 1
+* Filter the list `sw_people` (87 elements), contained in `repurrrsive` to include only those whose height is *not unknown*, and name this list `sw_people1`.
+* Use an atomic vector `has_height` to filter the list, and populate this vector using a loop structure. 
+* This new list (`sw_people1`) should have 81 elements. 
+
+```{r, echo=FALSE}
+has_height <- vector(mode="logical",length=length(sw_people))
+for(i in seq_along(sw_people)){
+  has_height[i] <- sw_people[[i]]$height != "unknown"
+}
+sw_people1 <- sw_people[has_height]
 ```
 
 
 ```{r,echo=T}
-# The output generated following the call to paste0()
-slist
+sum(has_height)
+length(sw_people1)
 ```
 
-## Exercise 3
-Generate a random sample of 20 temperatures (assume integer values in the range -5 to 30) using the `sample()` function (`set.seed(99)`). Assume that temperatures less than 4 are cold, temperatures greater that 25 are hot, and all others are medium, use the `ifelse()` function to generate the following vector. Note that an `ifelse()` call can be nested within another `ifelse()` call.
 
-```{r,include=FALSE}
-set.seed(99)
-temp <- sample(-5:30,20,replace = T)
-des  <- ifelse(temp<4,"Cold",ifelse(temp>25,"Hot","Medium"))
+## Exercise 2
+* Using a `for` loop over the filtered list `sw_people1` from exercise 2, create a list of people whose height is greater than or equal to 225 inches. 
+* The resulting vector should grow as matches are found, as we do not know in advance how many people will be contained in the result. 
+* Use the command `characters <- c()` to create the initial empty result vector. 
+* The `if` expression may be useful here too, and make sure that the height value is converted to a numeric value before evaluating.
+
+```{r, echo=FALSE}
+characters <- c()
+for(i in seq_along(sw_people1)){
+  if(as.numeric(sw_people1[[i]]$height) >= 225){
+    characters <- c(characters,sw_people1[[i]]$name)
+  }
+}
 ```
+
+The following result should be obtained.
 
 ```{r, echo=T}
-# The temperature data set
-temp[1:6]
-
-# The descriptions for each temperature generated by ifelse() call
-des[1:6]
+# These are the characters whose height is >= 225
+characters
 ```
 
+
 ## Lecture Summary
-* The difference between an atomic vector and a list, and be able to create atomic vectors and lists using the `c()` and `list()` functions.
-* The four main types of atomic vector, and how different vector elements can be named.
-* The rules of coercion for atomic vectors, and the importance of the function `is.na()`
-* The idea of vectorisation, and how arithmetic and logical operators can be applied to vectors.
-* Key R functions that allow you to work with vectors.
-* How to solve all three challenges
+* The four main ways to subset a vector, namely, by positive integer, the minus sign, logical vectors, and vector element names.
+* The role of the `[[` operator for processing lists, and how to distinguish this from the `[`  operator.
+* The use of the `$` operator
+* How to use the `for` loop structure to iterate through a list
+* How to use the `if` statement when processing lists, and how that statement differs from the `ifelse()` function
+* Additional R functions that allow you to process vectors
+* How to solve all three test exercises.
