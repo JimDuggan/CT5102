@@ -40,4 +40,5 @@ vignettes/*.pdf
 01 Vectors.Rmd
 02 subsetting.Rmd
 03 Functions.Rmd
+04 Mat-Data-Frames.Rmd
 
