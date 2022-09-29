@@ -6,6 +6,7 @@ evens <- function (v){
   # e_v*0
   v[v%%2 ==0]
 }
+
 evens1 <- function (v){
   list(ans=v[v%%2 ==0],
        v_size=length(v),
