@@ -21,6 +21,15 @@ print.queue <- function(q){
       q$processed,"\n")
 }
 
+print.queuE <- function(q){
+  cat("Queue name = ",q$queue_name,"\n")
+  cat("Queue Description = ",q$queue_description,"\n")
+  cat("Waiting <",length(q$waiting),"> Products Waiting = ",
+      q$waiting,"\n")
+  cat("Processed <",length(q$processed),"> Products Processed = ",
+      q$processed,"\n")
+}
+
 q1
 
 add <- function(q,p){
@@ -30,7 +39,6 @@ add <- function(q,p){
 process <- function(q){
   UseMethod("process")
 }
-
 
 add.queue <- function (q, p){
   q$waiting <- c(q$waiting, p)
